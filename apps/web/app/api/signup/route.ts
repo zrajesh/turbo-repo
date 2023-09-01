@@ -25,3 +25,7 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({error: error}, {status: 500})
     }
 }
+
+export function GET(request: NextRequest) {
+    return NextResponse.json({masg: "Hello..."})
+}

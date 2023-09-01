@@ -1,10 +1,14 @@
-import { Button, Header } from "ui";
+import { Header } from "ui";
+import TodoList from "ui/components/todo_list";
+import { serverClient } from "./_trpc/server_client";
 
-export default function Page(): JSX.Element {
+export default async function Page(): Promise<JSX.Element> {
+
+  const todos = await serverClient.myTodos.allTodos();
   return (
     <>
       <Header text="Web" />
-      <Button />
+      <TodoList Alltodos={todos} />
     </>
   );
 }

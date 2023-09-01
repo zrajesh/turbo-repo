@@ -1,3 +1,7 @@
+"use client"
+import Provider from "./_trpc/provider";
+import { RecoilRoot } from "recoil";
+
 export default function RootLayout({
   children,
 }: {
@@ -5,7 +9,13 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <RecoilRoot>
+        <Provider>
+        {children}
+        </Provider>
+        </RecoilRoot>
+      </body>
     </html>
   );
 }
